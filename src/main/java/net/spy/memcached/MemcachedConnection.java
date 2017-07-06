@@ -1316,13 +1316,12 @@ public class MemcachedConnection extends SpyThread {
     final CountDownLatch latch = new CountDownLatch(nodes.size());
 
     for (MemcachedNode node : nodes) {
-      getLogger().debug("broadcast Operation: node = " + node);
       Operation op = of.newOp(node, latch);
       op.initialize();
       node.addOp(op);
       op.setHandlingNode(node);
       addedQueue.offer(node);
-      metrics.markMeter(OVERALL_REQUEST_METRIC);
+      selector.wakeup();
     }
 
     Selector s = selector.wakeup();
