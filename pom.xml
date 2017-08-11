@@ -12,9 +12,9 @@
     -->
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.spy</groupId>
+    <groupId>org.criteo.nosql</groupId>
     <artifactId>spymemcached</artifactId>
-    <version>2.999.999-SNAPSHOT</version> <!-- not used -->
+    <version>2.12.3-criteo</version> <!-- not used -->
 
     <name>Spymemcached</name>
     <description>A client library for memcached.</description>
