@@ -1467,6 +1467,8 @@ public class MemcachedConnection extends SpyThread {
         logRunException(e);
       } catch (ConcurrentModificationException e) {
         logRunException(e);
+      } catch (Exception e) {
+        getLogger().error("Unexpected exception catch by Memcached IO thread ", e);
       }
     }
     getLogger().info("Shut down memcached client");
